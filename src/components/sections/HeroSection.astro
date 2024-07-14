@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+
+const sentences = [
+  { sentence: ["HAI", "👋", "I", "AM", "IQBAL", "MUTHAHHARY"], value: 1 },
+  { sentence: ["I", "AM", "JUNIOR", "FRONTEND", "DEVELOPER"], value: 2 },
+  { sentence: ["YOU", "CAN", "CALL", "ME", "IQBAL", "OR", "BAL"], value: 3 },
+];
+---
+
+<section class="w-full bg-gradient-to-b from-slate-50 to-sky-300 lg:pt-5">
+  <div
+    class="lg:grid lg:grid-cols-2 flex flex-col-reverse gap-4 py-7 container max-w-layout"
+  >
+    <div class="flex justify-center items-center">
+      <div class="flex flex-col gap-4">
+        {
+          sentences.map((text: { sentence: string[]; value: number }) => (
+            <div class="overflow-hidden text-wrap flex items-center lg:gap-2 gap-1">
+              {text.sentence.map((letter) => (
+                <h1
+                  class={`${text.value === 1 ? "lg:text-4xl md:text-2xl text-xl" : text.value === 2 ? "lg:text-4xl md:text-xl text-lg" : "lg:text-xl md:text-lg text-sm"} m-0 font-bold name`}
+                >
+                  {letter}
+                </h1>
+              ))}
+            </div>
+          ))
+        }
+        <div class="flex items-center gap-5 overflow-hidden text-white">
+          <button
+            class="px-4 py-3 font-semibold bg-green-600 rounded-md contact flex items-center gap-2"
+          >
+            RESUME <i class="bx bxs-file-doc"></i>
+          </button>
+          <a
+            href="https://github.com/Ibaliqbal"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="px-4 py-3 font-semibold bg-black rounded-md contact flex items-center gap-2"
+          >
+            GitHub <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="grid place-items-center">
+      <Image
+        src={"/hero.png"}
+        alt={"Hero section"}
+        width={800}
+        height={800}
+        class="hello"
+        format="avif"
+        loading={"eager"}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .name {
+    font-family: "Syncopate", sans-serif;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    gsap.from(".name", {
+      yPercent: 130,
+      duration: 1,
+      stagger: 0.25,
+      ease: "back.inOut",
+    });
+    gsap.from(".contact", {
+      yPercent: 130,
+      duration: 1,
+      stagger: 0.25,
+      ease: "back.inOut",
+    });
+    gsap.fromTo(
+      ".hello",
+      { y: -10, duration: 1 },
+      { duration: 1, y: 10, repeat: -1, yoyo: true }
+    );
+  });
+</script>

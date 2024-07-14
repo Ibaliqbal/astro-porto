@@ -1,0 +1,32 @@
+---
+import { ViewTransitions, slide } from "astro:transitions";
+import Navbar from "../components/Navbar.astro";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <ViewTransitions />
+  </head>
+  <body>
+    <Navbar />
+    <main transition:animate="slide" class="pb-24 h-[300dvh]">
+      <slot />
+    </main>
+  </body>
+</html>

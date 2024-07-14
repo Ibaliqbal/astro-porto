@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+
+const textAbout =
+  "I am a front end web developer who is usually called Iqbal, currently I am still a student at the Pamulang University campus majoring in computer science semester 1. I have a little experience in creating a visual web.";
+---
+
+<section
+  class="pt-14 w-full section-about bg-gradient-to-b from-white to-slate-300"
+>
+  <div
+    class="container max-w-layout lg:grid lg:grid-cols-2 flex flex-col gap-4 py-7"
+  >
+    <div class="grid place-items-center">
+      <Image
+        src={"/about.png"}
+        alt={"About me"}
+        format="avif"
+        loading={"eager"}
+        width={500}
+        height={500}
+        class="about-img"
+      />
+    </div>
+    <article class="flex flex-col gap-3">
+      <div class="overflow-hidden flex items-center lg:gap-2 gap-1">
+        <h1 class="font-bold lg:text-4xl md:text-2xl text-xl title-about">
+          ABOUT
+        </h1>
+        <h1 class="font-bold lg:text-4xl md:text-2xl text-xl title-about">
+          ME
+        </h1>
+      </div>
+      <div class="overflow-hidden flex items-center flex-wrap gap-1 w-full">
+        {
+          textAbout
+            .split(" ")
+            .map((word) => (
+              <h1 class="font-bold lg:text-2xl md:text-xl text-lg text-about">
+                {word}
+              </h1>
+            ))
+        }
+      </div>
+      <div class="text-4xl">
+        <a
+          href="https://instagram.com/muthahhary_iqbal?igshid=MzNlNGNkZWQ4Mg=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bx bxl-instagram cursor-pointer" aria-label="My Instagram"
+          ></i>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+  //   gsap.from()
+  document.addEventListener("astro:page-load", () => {
+    gsap.fromTo(
+      ".about-img",
+      { scale: 2.25, opacity: 0.5 },
+      {
+        opacity: 1,
+        scale: 1,
+        scrollTrigger: {
+          trigger: ".slider-text",
+          scrub: 0,
+          start: "top center",
+          end: "bottom center",
+        },
+      }
+    );
+
+    gsap.from(".text-about", {
+      opacity: 0,
+      scale: 0,
+      yPercent: 136,
+      stagger: 0.25,
+      ease: "back.inOut",
+      scrollTrigger: {
+        trigger: ".section-about",
+        start: "top bottom", // Change start position to trigger animation when element reaches the center of the viewport
+        end: "bottom 75%",
+        scrub: 1,
+      },
+    });
+
+    gsap.from(".title-about", {
+      yPercent: 136,
+      duration: 1,
+      stagger: 0.25,
+      ease: "back.inOut",
+      scrollTrigger: {
+        trigger: ".section-about",
+        start: "top bottom", // Change start position to trigger animation when element reaches the center of the viewport
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
+  });
+</script>
