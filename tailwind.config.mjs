@@ -8,7 +8,7 @@ export default {
         padding: "1.25rem",
       },
       maxWidth: {
-        layout: "1600px",
+        layout: "1400px",
       },
     },
   },

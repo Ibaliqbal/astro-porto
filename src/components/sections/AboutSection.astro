@@ -11,7 +11,7 @@ const textAbout =
   <div
     class="container max-w-layout lg:grid lg:grid-cols-2 flex flex-col gap-4 py-7"
   >
-    <div class="grid place-items-center">
+    <div class="flex items-center justify-centerx bg-red-400">
       <Image
         src={"/about.png"}
         alt={"About me"}
@@ -65,10 +65,11 @@ const textAbout =
   document.addEventListener("astro:page-load", () => {
     gsap.fromTo(
       ".about-img",
-      { scale: 2.25, opacity: 0.5 },
+      { y: 150 },
       {
-        opacity: 1,
-        scale: 1,
+        y: 0,
+        duration: 2,
+        ease: "power1.in",
         scrollTrigger: {
           trigger: ".slider-text",
           scrub: 0,
