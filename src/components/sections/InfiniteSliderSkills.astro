@@ -1,0 +1,16 @@
+---
+import SliderSkills from "../React/SliderSkills";
+
+type Props = {
+  direction: "left" | "right";
+  background: string;
+};
+
+const { background, direction } = Astro.props;
+---
+
+<section class={`${background} pt-3`}>
+  <div class="p-4 max-w-9xl container pt-3">
+    <SliderSkills direction={direction} client:visible client:only />
+  </div>
+</section>

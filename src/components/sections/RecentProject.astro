@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import { recentProject } from "@/utils/constant";
+---
+
+<section
+  class="bg-gradient-to-b from-slate-50 to-sky-300 pt-10 pb-24"
+  id="recent-project"
+>
+  <div class="container max-w-9xl pt-14">
+    <section class="w-full flex justify-between items-center">
+      <div class="overflow-hidden flex items-center lg:gap-2 gap-1">
+        <h1
+          class="font-bold lg:text-6xl md:text-4xl text-2xl title-recent-project"
+        >
+          RECENT
+        </h1>
+        <h1
+          class="font-bold lg:text-6xl md:text-4xl text-2xl title-recent-project"
+        >
+          PROJECT
+        </h1>
+      </div>
+      <div class="overflow-hidden">
+        <a
+          href="https://github.com/Ibaliqbal"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="My Github"
+          class="my-github text-4xl"
+        >
+          <i class="bx bxl-github title-recent-project"></i></a
+        >
+      </div>
+    </section>
+    <section class="overflow-hidden mt-20 flex flex-col gap-5 pt-10 px-4">
+      {
+        recentProject.map((project, i) => (
+          <article
+            class={`bg-gradient-to-r to-slate-50 from-cyan-300 p-4 lg:grid lg:grid-cols-2 flex flex-col rounded-3xl gap-4 px-3 py-6 ${i % 2 === 0 ? "card-right" : "card-left"}`}
+          >
+            <div class="flex flex-col justify-center gap-8 pl-5">
+              <h1 class="lg:text-5xl md:text-3xl text-xl font-bold">
+                {project.title}
+              </h1>
+              <div class="lg:text-4xl md:text-2xl text-xl flex items-center gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="source code"
+                >
+                  <i class="bx bxl-github" />
+                </a>
+                <a
+                  href={project.web}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="link website"
+                >
+                  <i class="bx bx-link" style="color:#ffffff" />
+                </a>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                {project.techstack.map((tech) => (
+                  <button class="px-5 py-3 rounded-lg bg-slate-900 text-white">
+                    {tech}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={600}
+                loading={"eager"}
+              />
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".title-recent-project", {
+    yPercent: 130,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".title-recent-project",
+      start: "top center",
+      end: "bottom end",
+      scrub: true,
+    },
+  });
+
+  gsap.from(".card-right", {
+    translateX: 200,
+    duration: 0.5,
+    opacity: 0,
+    stagger: 0.25,
+    ease: "back.inOut",
+    scrollTrigger: {
+      trigger: "#recent-project",
+      start: "top 95%",
+      end: "bottom center",
+      scrub: 1,
+    },
+  });
+  gsap.from(".card-left", {
+    translateX: -200,
+    duration: 0.5,
+    opacity: 0,
+    stagger: 0.25,
+    ease: "back.inOut",
+    scrollTrigger: {
+      trigger: "#recent-project",
+      start: "top 95%",
+      end: "bottom center",
+      scrub: 1,
+    },
+  });
+</script>

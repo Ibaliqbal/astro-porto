@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import { skills } from "@/utils/constant";
+import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
+---
+
+<section class="pt-14 section-skills bg-gradient-to-b from-slate-50 to-sky-300">
+  <div class="flex flex-col gap-3 container max-w-9xl py-7">
+    <div class="overflow-hidden flex justify-center lg:gap-2 gap-1">
+      <h1 class="font-bold lg:text-6xl md:text-4xl text-2xl title-skills">
+        MY SKILLS
+      </h1>
+    </div>
+    <section class="">
+      <InfiniteSliderSkills
+        direction="right"
+        background="bg-transparent mt-6"
+      />
+    </section>
+    <div class="lg:grid lg:grid-cols-2 gap-8 mt-6">
+      <div class="overflow-hidden grid">
+        <Image
+          src={"/skill.png"}
+          format="avif"
+          alt={"My Skill"}
+          width={600}
+          height={600}
+          class="about-img"
+        />
+      </div>
+      <section class="flex flex-wrap gap-4 justify-center md:mt-0 mt-6">
+        {
+          skills.map((skill) => (
+            <a
+              class="overflow-hidden hover:scale-95 transition-transform duration-300 ease-in-out"
+              href={skill.tutorial}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="flex flex-col items-center gap-2 h-fit p-4 skill">
+                <Image
+                  src={skill.image}
+                  alt={skill.name}
+                  width={50}
+                  height={50}
+                  loading={"eager"}
+                  class="md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
+                />
+                <p class="">{skill.name}</p>
+              </div>
+            </a>
+          ))
+        }
+      </section>
+    </div>
+  </div>
+  <InfiniteSliderSkills direction="left" background="bg-transparent mt-3" />
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("astro:page-load", () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section-skills",
+        scrub: 1,
+        start: "top bottom", // Change start position to trigger animation when element reaches the center of the viewport
+        end: "bottom 65%",
+      },
+    });
+
+    tl.from(".title-skills", {
+      xPercent: -136,
+      duration: 1,
+      opacity: 0,
+      ease: "back.inOut",
+    });
+
+    gsap.from(".about-img", {
+      opacity: 0,
+      yPercent: 100,
+      duration: 1,
+      ease: "circ.inOut",
+      scrollTrigger: {
+        trigger: ".section-skills",
+        start: "top bottom",
+        end: "bottom 95%",
+        scrub: 1,
+      },
+    });
+
+    gsap.from(".skill", {
+      yPercent: 150,
+      duration: 1,
+      ease: "back.inOut",
+      opacity: 0,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".section-skills",
+        start: "top 95%", // Change start position to trigger animation when element reaches the center of the viewport
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
+  });
+</script>

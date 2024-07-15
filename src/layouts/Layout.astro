@@ -20,13 +20,49 @@ const { title } = Astro.props;
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
+    /><link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
     />
     <ViewTransitions />
   </head>
-  <body>
+  <body transition:animate="none">
     <Navbar />
-    <main transition:animate="slide" class="pb-24 h-[300dvh]">
+    <main class="mb-[500px] pb-24">
       <slot />
     </main>
+    <style>
+      *,
+      html,
+      body {
+        font-family: "DM Serif Display", serif;
+        font-weight: 500;
+        font-style: normal;
+        scroll-behavior: smooth;
+      }
+
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
   </body>
 </html>

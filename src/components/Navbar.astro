@@ -1,4 +1,5 @@
 ---
+import Link from "./ui/Link.astro";
 import NavLink from "./ui/NavLink.astro";
 
 const { pathname } = Astro.url;
@@ -13,16 +14,8 @@ const { pathname } = Astro.url;
         activeClass="border-b-4 border-b-blue-400"
         customCondition={pathname === "/"}>Home</NavLink
       >
-      <NavLink
-        href={"/about"}
-        activeClass="border-b-4 border-b-blue-400"
-        customCondition={pathname === "/about"}>About</NavLink
-      >
-      <NavLink
-        href={"/project"}
-        activeClass="border-b-4 border-b-blue-400"
-        customCondition={pathname === "/project"}>Project</NavLink
-      >
+      <Link href={"#about"}>About</Link>
+      <Link href={"#recent-project"}>Project</Link>
     </nav>
   </div>
 </header>

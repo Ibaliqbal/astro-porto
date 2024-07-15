@@ -10,6 +10,16 @@ export default {
       maxWidth: {
         layout: "1400px",
       },
+      keyframes: {
+        sliderLeft: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        sliderRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
     },
   },
   plugins: [],

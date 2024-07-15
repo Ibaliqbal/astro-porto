@@ -1,15 +1,41 @@
 ---
-import { Image } from "astro:assets";
-import HeroSection from "../components/sections/HeroSection.astro";
-import InfiniteSlideText from "../components/sections/InfiniteSlideText.astro";
-import Layout from "../layouts/Layout.astro";
-import AboutSection from "../components/sections/AboutSection.astro";
-
-const aboutText = "";
+import HeroSection from "@/components/sections/HeroSection.astro";
+import InfiniteSlideText from "@/components/sections/InfiniteSlideText.astro";
+import Layout from "@/layouts/Layout.astro";
+import AboutSection from "@/components/sections/AboutSection.astro";
+import SkillsSection from "@/components/sections/SkillsSection.astro";
+import ProjectImageSection from "@/components/sections/ProjectImageSection.astro";
+import RecentProject from "@/components/sections/RecentProject.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <HeroSection />
   <InfiniteSlideText />
   <AboutSection />
+  <SkillsSection />
+  <section
+    class="w-full bg-gradient-to-t from-slate-50 pb-24 to-sky-300 h-[50px]"
+  >
+  </section>
+  <ProjectImageSection />
+  <RecentProject />
 </Layout>
+
+<script>
+  import Lenis from "lenis";
+  import { ScrollTrigger } from "gsap/all";
+  const lenis = new Lenis({
+    duration: 1.25,
+    smoothWheel: true,
+  });
+
+  const raf = (time: number) => {
+    lenis.raf(time);
+    ScrollTrigger.update();
+    requestAnimationFrame(raf);
+  };
+
+  document.addEventListener("astro:page-load", () => {
+    requestAnimationFrame(raf);
+  });
+</script>
