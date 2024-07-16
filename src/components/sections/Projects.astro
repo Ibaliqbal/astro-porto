@@ -40,14 +40,14 @@ import { Image } from "astro:assets";
     {
       recentProject.map((project) => (
         <section class="w-full h-dvh">
-          <div class="inner relative border-b-2 border-white rounded-b-lg">
+          <div class="inner relative border-b-2 border-white rounded-b-lg lg:m-[7em] m-[3em]">
             <Image
               src={project.image}
               alt={project.title}
               width={700}
               height={700}
               loading={"eager"}
-              class="absolute xl:top-[50%] top-[45%] left-[50%] -translate-x-[50%] -translate-y-[50%] "
+              class="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] "
             />
             <div class="content px-4 pb-4 flex flex-col gap-4">
               <h1 class="lg:text-4xl md:text-2xl text-xl font-bold">
@@ -81,7 +81,6 @@ import { Image } from "astro:assets";
 
 <style>
   .inner {
-    margin: 7em;
     height: calc(100% - 14em);
     display: flex;
     align-items: end;
