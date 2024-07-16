@@ -22,7 +22,7 @@ const SliderSkills = ({ direction }: { direction: "left" | "right" }) => {
               loading="lazy"
               className="w-[50px] h-[50px]"
             />
-            <p className="text-xl font-bold">{skill.name}</p>
+            <p className="text-xl font-bold text-black">{skill.name}</p>
           </div>
         </a>
       ))}

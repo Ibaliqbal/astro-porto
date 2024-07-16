@@ -1,0 +1,101 @@
+/* Hamburger button */
+.hamburger::after,
+.hamburger::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 40%;
+  margin: auto;
+  background-color: black;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.hamburger::after {
+  top: -5px;
+}
+
+.hamburger::before {
+  top: 5px;
+}
+
+.hamburger.active::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+
+.hamburger.active::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+
+/*  */
+
+.menu {
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+}
+
+.body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  font-size: 56px;
+  gap: 12px;
+  margin-top: 80px;
+}
+
+.header {
+  color: rgb(153, 153, 153);
+  border-bottom: 1px solid rgb(153, 153, 153);
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+
+.href {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+
+/* Footer Nav */
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  gap: 40px;
+}
+
+/* Curve Nav */
+
+.svgCurve {
+  position: absolute;
+  top: 0;
+  left: -99px;
+  width: 100px;
+  height: 100%;
+  fill: rgb(41, 41, 41);
+  stroke: none;
+  z: 9999;
+}

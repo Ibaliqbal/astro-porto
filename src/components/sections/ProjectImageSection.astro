@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 ---
 
 <section
-  class="w-full overflow-hidden pt-6 section-parallax lg:h-[230dvh] md:h-[200dvh] h-[150dvh] relative"
+  class="w-full overflow-hidden pt-6 section-parallax lg:h-[280dvh] md:h-[200dvh] h-[190dvh] relative"
 >
   <Image
     src={"/projectParallax/balmed-tablet.png"}
@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
     width={350}
     height={350}
     loading={"eager"}
-    class="absolute z-[1] left-5 top-36 first-parallax rounded-md lg:w-[350px] lg:h-[350px] md:w-[250px] md:h-[250px] w-[200px] h-[200px]"
+    class="absolute z-[1] md:left-5 md:top-36 left-2 top-20 first-parallax rounded-md lg:w-[450px] lg:h-[450px] md:w-[250px] md:h-[250px] w-[200px] h-[200px]"
     format="webp"
   />
   <Image
@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
     width={450}
     height={450}
     loading={"eager"}
-    class="absolute z-[4] md:right-5 right-2 md:top-44 top-64 second-parallax rounded-md lg:w-[450px] lg:h-[450px] md:w-[350px] md:h-[350px] w-[250px] h-[250px]"
+    class="absolute z-[4] md:right-5 right-2 md:top-44 top-32 second-parallax rounded-md lg:w-[450px] lg:h-[450px] md:w-[350px] md:h-[350px] w-[250px] h-[250px]"
     format="webp"
   />
   <Image
@@ -29,7 +29,7 @@ import { Image } from "astro:assets";
     width={700}
     height={700}
     loading={"eager"}
-    class="main-parallax z-[5] absolute top-96 left-1/2 object-fill object-center -translate-x-[50%] rounded-md lg:w-[700px] lg:h-[700px] md:w-[450px] md:h-[450px] w-[250px] h-[250px]"
+    class="main-parallax z-[5] absolute md:top-72 top-80 left-1/2 object-fill object-center -translate-x-[50%] rounded-md lg:w-[700px] lg:h-[700px] md:w-[450px] md:h-[450px] w-[250px] h-[250px]"
     format="webp"
   />
 </section>
@@ -44,40 +44,29 @@ import { Image } from "astro:assets";
     scrollTrigger: {
       trigger: ".section-parallax",
       scrub: 1,
-      start: "top end",
-      end: "bottom start",
+      start: "5% start",
+      end: "bottom 5%",
     },
   });
 
   gsap.matchMedia().add("(min-width: 1024px)", () => {
     tl.to(".main-parallax", {
-      scale: 4,
-      duration: 10.5,
-      y: 10,
+      scale: 3,
+      duration: 5,
       width: "100%",
       objectFit: "fill",
-    });
-  });
-
-  gsap.matchMedia().add("(max-width: 1023px)", () => {
-    tl.to(".main-parallax", {
-      scale: 4,
-      y: 50,
-      duration: 10.5,
-      width: "100%",
       height: "100%",
     });
   });
 
   gsap.to(".first-parallax", {
     scale: 3,
-    y: 50,
-    duration: 5,
+    duration: 3,
     scrollTrigger: {
       trigger: ".section-parallax",
-      start: "top endr",
-      end: "bottom center",
       scrub: 1,
+      start: "5% start",
+      end: "bottom 5%",
     },
   });
 
@@ -86,9 +75,18 @@ import { Image } from "astro:assets";
     duration: 6.5,
     scrollTrigger: {
       trigger: ".section-parallax",
-      start: "top end",
-      end: "bottom center",
       scrub: 1,
+      start: "5% start",
+      end: "bottom 5%",
     },
+  });
+
+  gsap.matchMedia().add("(max-width: 1023px)", () => {
+    tl.to(".main-parallax", {
+      scale: 4,
+      duration: 10.5,
+      width: "100%",
+      height: "100%",
+    });
   });
 </script>

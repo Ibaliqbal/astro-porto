@@ -1,30 +1,9 @@
 ---
-import Link from "./ui/Link.astro";
-import NavLink from "./ui/NavLink.astro";
-
-const { pathname } = Astro.url;
+import NavbarResponsive from "./React/Navbar/NavbarResponsiveponsive";
 ---
 
-<header class="w-full bg-red-400 py-6 navbar">
-  <div class="flex justify-between items-center container max-w-layout">
-    <h1 class="font-bold text-xl">IM</h1>
-    <nav class="lg:flex hidden gap-4 items-center text-lg font-semibold">
-      <NavLink
-        href={"/"}
-        activeClass="border-b-4 border-b-blue-400"
-        customCondition={pathname === "/"}>Home</NavLink
-      >
-      <Link href={"#about"}>About</Link>
-      <Link href={"#recent-project"}>Project</Link>
-    </nav>
-  </div>
+<header
+  class="w-full bg-red-400 py-6 flex justify-between items-center max-w-9xl container z-[9999]"
+>
+  <h1 class="font-bold text-xl">IM</h1>
 </header>
-
-<style>
-  .navbar {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13.5px);
-    -webkit-backdrop-filter: blur(13.5px);
-  }
-</style>

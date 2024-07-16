@@ -4,19 +4,17 @@ import { skills } from "@/utils/constant";
 import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
 ---
 
-<section class="pt-14 section-skills bg-gradient-to-b from-slate-50 to-sky-300">
+<section
+  class="pt-14 section-skills bg-gradient-to-b from-slate-50 to-sky-300"
+  id="skills"
+>
   <div class="flex flex-col gap-3 container max-w-9xl py-7">
     <div class="overflow-hidden flex justify-center lg:gap-2 gap-1">
       <h1 class="font-bold lg:text-6xl md:text-4xl text-2xl title-skills">
         MY SKILLS
       </h1>
     </div>
-    <section class="">
-      <InfiniteSliderSkills
-        direction="right"
-        background="bg-transparent mt-6"
-      />
-    </section>
+    <InfiniteSliderSkills direction="right" background="bg-transparent mt-6" />
     <div class="lg:grid lg:grid-cols-2 gap-8 mt-6">
       <div class="overflow-hidden grid">
         <Image
@@ -46,7 +44,7 @@ import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
                   loading={"eager"}
                   class="md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
                 />
-                <p class="">{skill.name}</p>
+                <p class="text-black">{skill.name}</p>
               </div>
             </a>
           ))

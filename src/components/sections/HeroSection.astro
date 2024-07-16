@@ -10,11 +10,11 @@ import { sentences } from "@/utils/constant";
       {
         sentences.map((text: { sentence: string[]; value: number }) => (
           <div
-            class={`overflow-hidden text-wrap flex items-center gap-1 ${text.value === 1 ? "lg:gap-3" : "lg:gap-2"}`}
+            class={`overflow-hidden text-wrap flex items-center gap-1 ${text.value === 1 ? "lg:gap-5" : "lg:gap-3"}`}
           >
             {text.sentence.map((letter) => (
               <h1
-                class={`${text.value === 1 ? "lg:text-6xl md:text-4xl text-2xl" : text.value === 2 ? "lg:text-4xl md:text-2xl text-xl" : "lg:text-2xl md:text-xl text-lg"} m-0 name`}
+                class={`${text.value === 1 ? "lg:text-7xl md:text-4xl text-3xl" : text.value === 2 ? "lg:text-6xl md:text-2xl text-2xl" : "lg:text-4xl md:text-xl text-xl"} m-0 name`}
               >
                 {letter}
               </h1>

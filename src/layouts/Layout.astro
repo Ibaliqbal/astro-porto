@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions, slide } from "astro:transitions";
-import Navbar from "../components/Navbar.astro";
+import NavbarResponsive from "@/components/React/Navbar/NavbarResponsive";
 interface Props {
   title: string;
 }
@@ -29,11 +29,28 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body transition:animate="none">
-    <Navbar />
-    <main class="mb-[500px] pb-24">
+    <NavbarResponsive client:only />
+    <main class="">
       <slot />
     </main>
     <style>
+      body::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      body::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      body::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Color of the scrollbar thumb on hover */
+      }
+
       *,
       html,
       body {

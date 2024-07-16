@@ -88,7 +88,7 @@ export const sentences = [
 
 export const recentProject = [
   {
-    title: "BALSNET",
+    title: "Movie Astro App",
     image: "/project/preview-movie-astro.png",
     github: "https://github.com/Ibaliqbal/movie-astro",
     web: "https://movie-astro.vercel.app",
@@ -101,14 +101,14 @@ export const recentProject = [
     ],
   },
   {
-    title: "BALMED",
+    title: "BalMed",
     image: "/project/preview-balmed.png",
     github: "https://github.com/Ibaliqbal/balmed",
     web: "https://balmed.vercel.app",
     techstack: ["Next Js", "Tailwind CSS", "NextAuth", "Supabase"],
   },
   {
-    title: "BSHOPP",
+    title: "BShopp",
     image: "/project/preview-bshopp.png",
     github: "https://github.com/Ibaliqbal/bshopp",
     web: "https://bshopp.vercel.app",
