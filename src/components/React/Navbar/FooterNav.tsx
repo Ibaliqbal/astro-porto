@@ -5,7 +5,7 @@ import "../style.css";
 
 export default function FooterNav() {
   return (
-    <div className="footer">
+    <div className="footer lg:pl-0 pl-4">
       <a
         href="https://github.com/Ibaliqbal"
         target="_blank"

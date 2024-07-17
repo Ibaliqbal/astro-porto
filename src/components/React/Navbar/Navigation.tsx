@@ -36,7 +36,7 @@ export default function Navigation() {
       className="menu z-40"
     >
       <div className="body">
-        <div className="nav">
+        <div className="nav lg:pl-0 pl-4">
           <div className="header">
             <p>Navigation</p>
           </div>
