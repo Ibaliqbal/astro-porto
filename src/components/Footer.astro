@@ -3,7 +3,7 @@
     <div>
       <h2 class="font-bold text-2xl">Navigation</h2>
       <ul class="flex flex-col gap-2 mt-3 text-xl">
-        <li><a href="#">Home</a></li>
+        <li class="backToTop">Home</li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -44,3 +44,11 @@
     </div>
   </section>
 </footer>
+
+<script>
+  document.querySelector(".backToTop")?.addEventListener("click", () => {
+    scrollTo({
+      top: 0,
+    });
+  });
+</script>
