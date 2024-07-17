@@ -1,9 +1,10 @@
 ---
-const textAbout =
-  "I am a front end web developer who is usually called Iqbal, currently I am still a student at the Pamulang University campus majoring in computer science semester 3. I have a little experience in creating a visual web.";
+import GithubStats from "@/components/React/GithubStats";
+const aboutText =
+  "Hello, my name is Iqbal Muthahhary. I reside in Bogor, West Java, Indonesia, and I have extensive experience in front-end web development, particularly with technologies such as React Js, Next Js, and Astro Js. I am currently a third-semester computer science student at Pamulang University.";
 ---
 
-<section class="pt-20 w-full section-about pb-24" id="about">
+<section class="pt-24 w-full section-about pb-24" id="about">
   <article class="flex flex-col gap-3 container max-w-7xl py-7">
     <div class="overflow-hidden flex justify-center lg:gap-2 gap-1">
       <h1 class="font-bold lg:text-7xl md:text-6xl text-2xl title-about">
@@ -12,18 +13,23 @@ const textAbout =
       <h1 class="font-bold lg:text-7xl md:text-4xl text-2xl title-about">ME</h1>
     </div>
     <div class="mt-6">
-      <div
-        class="overflow-hidden flex items-center justify-center flex-wrap gap-1 lg:gap-3 w-full"
-      >
+      <div class="overflow-hidden flex flex-wrap gap-1 lg:gap-3 w-full">
         {
-          textAbout
+          aboutText
             .split(" ")
             .map((word) => (
-              <h1 class="font-bold lg:text-6xl md:text-4xl text-2xl text-about text-center leading-loose">
+              <h1 class="font-bold lg:text-4xl md:text-2xl text-xl text-about text-center leading-loose">
                 {word}
               </h1>
             ))
         }
+      </div>
+    </div>
+    <div class="mt-6 lg:overflow-hidden w-fit max-w-full">
+      <div
+        class="p-4 rounded-lg github-stats bg-gradient-to-b to-slate-50 from-sky-300"
+      >
+        <GithubStats client:only />
       </div>
     </div>
   </article>
@@ -64,6 +70,11 @@ const textAbout =
       opacity: 0,
       yPercent: 136,
       stagger: 0.05,
+      ease: "power3.Out",
+    }).from(".github-stats", {
+      opacity: 0,
+      yPercent: 136,
+      duration: 3.5,
       ease: "power3.Out",
     });
 

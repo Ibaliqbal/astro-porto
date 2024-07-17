@@ -67,10 +67,10 @@ import MagneticElement from "@/components/React/MagneticElement";
   document.addEventListener("astro:page-load", () => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".section-skills",
+        trigger: ".title-skills",
         scrub: 1,
-        start: "top bottom", // Change start position to trigger animation when element reaches the center of the viewport
-        end: "bottom 65%",
+        start: "top center", // Change start position to trigger animation when element reaches the center of the viewport
+        end: "bottom 25%",
       },
     });
 
