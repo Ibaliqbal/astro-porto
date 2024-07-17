@@ -35,8 +35,8 @@ export default function Navigation() {
       exit="exit"
       className="menu z-40"
     >
-      <div className="body">
-        <div className="nav lg:pl-0 pl-4">
+      <div className="body lg:p-[100px] pb-[100px] lg:pb-0 px-[55px]">
+        <div className="nav items-start">
           <div className="header">
             <p>Navigation</p>
           </div>

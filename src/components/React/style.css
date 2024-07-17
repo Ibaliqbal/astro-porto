@@ -43,7 +43,6 @@
 .body {
   box-sizing: border-box;
   height: 100%;
-  padding: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -82,7 +81,6 @@ a {
 .footer {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   font-size: 12px;
   gap: 40px;
 }
