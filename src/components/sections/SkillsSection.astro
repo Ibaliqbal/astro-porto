@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { skills } from "@/utils/constant";
 import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
+import MagneticElement from "@/components/React/MagneticElement";
 ---
 
 <section
@@ -30,22 +31,24 @@ import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
         {
           skills.map((skill) => (
             <a
-              class="overflow-hidden hover:scale-95 transition-transform duration-300 ease-in-out"
+              class="overflow-hidden "
               href={skill.tutorial}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div class="flex flex-col items-center gap-2 h-fit p-4 skill">
-                <Image
-                  src={skill.image}
-                  alt={skill.name}
-                  width={50}
-                  height={50}
-                  loading={"eager"}
-                  class="md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
-                />
-                <p class="text-black">{skill.name}</p>
-              </div>
+              <MagneticElement client:load>
+                <div class="flex flex-col items-center gap-2 h-fit p-4 skill">
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={50}
+                    height={50}
+                    loading={"eager"}
+                    class="md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
+                  />
+                  <p class="text-black">{skill.name}</p>
+                </div>
+              </MagneticElement>
             </a>
           ))
         }

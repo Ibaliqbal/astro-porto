@@ -1,3 +1,6 @@
+// This component create by oliverlarose
+// Here is his github link https://github.com/olivierlarose/curved-menu
+
 import { motion } from "framer-motion";
 import "../style.css";
 

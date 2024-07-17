@@ -1,5 +1,7 @@
 ---
+import { skills } from "@/utils/constant";
 import SliderSkills from "../React/SliderSkills";
+import { Image } from "astro:assets";
 
 type Props = {
   direction: "left" | "right";
@@ -11,6 +13,29 @@ const { background, direction } = Astro.props;
 
 <section class={`${background} pt-3`}>
   <div class="p-4 max-w-9xl container pt-3">
-    <SliderSkills direction={direction} client:visible client:only />
+    <SliderSkills direction={direction} client:only>
+      {
+        skills.map((skill, i) => (
+          <a
+            rel="noopener noreferrer"
+            href={skill.tutorial}
+            target="_blank"
+            class="inline-block m-0"
+          >
+            <div class="flex items-center gap-2 mr-16">
+              <Image
+                src={skill.image}
+                alt={skill.name}
+                width={100}
+                height={100}
+                loading="eager"
+                class="w-[50px] h-[50px]"
+              />
+              <p class="text-xl font-bold text-black">{skill.name}</p>
+            </div>
+          </a>
+        ))
+      }
+    </SliderSkills>
   </div>
 </section>
