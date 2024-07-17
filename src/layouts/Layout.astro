@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import NavbarResponsive from "@/components/React/Navbar/NavbarResponsive";
 interface Props {
   title: string;
@@ -31,9 +30,8 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <ViewTransitions />
   </head>
-  <body transition:animate="none">
+  <body>
     <NavbarResponsive client:only />
     <main class="">
       <slot />
@@ -86,5 +84,6 @@ const { title } = Astro.props;
         pointer-events: none;
       }
     </style>
+    <script src="../script/index.ts"></script>
   </body>
 </html>

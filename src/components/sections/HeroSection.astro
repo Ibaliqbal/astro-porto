@@ -43,21 +43,3 @@ import { sentences } from "@/utils/constant";
     font-style: italic;
   }
 </style>
-
-<script>
-  import { gsap } from "gsap";
-  document.addEventListener("astro:page-load", () => {
-    gsap.from(".name", {
-      yPercent: 130,
-      duration: 1,
-      stagger: 0.25,
-      ease: "back.inOut",
-    });
-    gsap.from(".contact", {
-      yPercent: 130,
-      duration: 1,
-      stagger: 0.25,
-      ease: "back.inOut",
-    });
-  });
-</script>

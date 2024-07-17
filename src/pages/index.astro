@@ -22,22 +22,3 @@ import Footer from "@/components/Footer.astro";
   <Projects />
   <Footer />
 </Layout>
-
-<script>
-  import Lenis from "lenis";
-  import { ScrollTrigger } from "gsap/all";
-  const lenis = new Lenis({
-    duration: 1.25,
-    smoothWheel: true,
-  });
-
-  const raf = (time: number) => {
-    lenis.raf(time);
-    ScrollTrigger.update();
-    requestAnimationFrame(raf);
-  };
-
-  document.addEventListener("astro:page-load", () => {
-    requestAnimationFrame(raf);
-  });
-</script>

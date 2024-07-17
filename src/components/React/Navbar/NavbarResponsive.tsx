@@ -1,8 +1,8 @@
 // This component create by oliverlarose
 // Here is his github link https://github.com/olivierlarose/curved-menu
 
-import React, { useState } from "react";
-import "../style.css";
+import { useState } from "react";
+import "@/styles/react.css";
 import { AnimatePresence } from "framer-motion";
 import Navigation from "./Navigation";
 import MagneticElement from "../MagneticElement";

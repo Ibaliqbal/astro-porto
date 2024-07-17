@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { menuSlide } from "@/utils/navbar/anim";
-import "../style.css";
+import "@/styles/react.css";
 import FooterNav from "./FooterNav";
 import Curve from "./Curve";
 

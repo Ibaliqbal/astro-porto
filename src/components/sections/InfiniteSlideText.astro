@@ -5,39 +5,3 @@
     <p class="text-2 m-0 text-9xl font-bold">Front-End Developer</p>
   </div>
 </div>
-
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/all";
-
-  document.addEventListener("astro:page-load", () => {
-    let xPercent = 0;
-    let direction = -1;
-
-    function animate() {
-      if (xPercent < -100) {
-        xPercent = 0;
-      } else if (xPercent > 0) {
-        xPercent = -100;
-      }
-      gsap.set(".text-1", { xPercent: xPercent });
-      gsap.set(".text-2", { xPercent: xPercent });
-      requestAnimationFrame(animate);
-      xPercent += 0.05 * direction;
-    }
-
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".slider-text", {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: (e) => (direction = e.direction * -1),
-      },
-      x: "-500px",
-    });
-
-    requestAnimationFrame(animate);
-  });
-</script>

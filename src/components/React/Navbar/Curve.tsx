@@ -2,7 +2,7 @@
 // Here is his github link https://github.com/olivierlarose/curved-menu
 
 import { motion } from "framer-motion";
-import "../style.css";
+import "@/styles/react.css";
 
 export default function Curver() {
   const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${
